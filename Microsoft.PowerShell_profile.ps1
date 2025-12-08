@@ -5,7 +5,6 @@ $OutputEncoding = [System.Text.UTF8Encoding]::new()
 function Update-All {
     Update-Scoop
     Update-Winget
-    Update-Pnpm
 }
 
 function Update-Winget {
@@ -16,10 +15,6 @@ function Update-Scoop {
     scoop update
     scoop update *
     scoop cleanup *
-}
-
-function Update-Pnpm {
-    pnpm update -g
 }
 
 function Set-Shell-Proxy {
