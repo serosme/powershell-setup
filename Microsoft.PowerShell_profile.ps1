@@ -2,6 +2,10 @@ $OutputEncoding = [System.Text.UTF8Encoding]::new()
 [Console]::InputEncoding = [System.Text.UTF8Encoding]::new()
 [Console]::OutputEncoding = [System.Text.UTF8Encoding]::new()
 
+function Open-Startup {
+    Start-Process "$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Startup"
+}
+
 function Update-All {
     Update-Scoop
     Update-Winget
