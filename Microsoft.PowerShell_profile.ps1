@@ -106,4 +106,4 @@ Set-PSReadlineKeyHandler -Chord Tab -Function MenuComplete
 Set-PSReadlineKeyHandler -Key UpArrow -Function HistorySearchBackward
 Set-PSReadlineKeyHandler -Key DownArrow -Function HistorySearchForward
 
-oh-my-posh init pwsh --config ~/workspace/private/oh-my-posh-custom/sample.omp.json  | Invoke-Expression
+oh-my-posh init pwsh --config ~/Documents/WindowsPowerShell/sample.omp.json  | Invoke-Expression
