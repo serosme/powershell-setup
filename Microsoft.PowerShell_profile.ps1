@@ -26,6 +26,11 @@ function Set-Shell-Proxy {
     $env:https_proxy = "http://127.0.0.1:7890";
 }
 
+function Reset-Shell-Proxy {
+    $env:http_proxy = "";
+    $env:https_proxy = "";
+}
+
 function Set-Git-Proxy {
     git config --global http.proxy http://127.0.0.1:7890
     git config --global https.proxy http://127.0.0.1:7890
@@ -53,19 +58,17 @@ function Reset-WinGet-Proxy {
 }
 
 function Set-All-Proxy {
+    Set-Shell-Proxy
     Set-Git-Proxy
     Set-Scoop-Proxy
     Set-WinGet-Proxy
 }
 
 function Reset-All-Proxy {
+    Set-Shell-Proxy
     Reset-Git-Proxy
     Reset-Scoop-Proxy
     Reset-WinGet-Proxy
-}
-
-function Enable-Long-Path-Support {
-    Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\FileSystem" -Name "LongPathsEnabled" -Value 1 -Type DWord -Force
 }
 
 function Reset-Notify {
@@ -85,25 +88,13 @@ function Set-New-Context-Menu {
     Stop-Process -Name explorer
 }
 
-function Mount-OneDrive {
-    rclone mount OneDrive: O: --vfs-cache-mode full -v
-}
+# Import-Module PSReadLine
+# Import-Module posh-git
 
-function Mount-OneDrive_Crypt {
-    rclone mount OneDrive_Crypt: P: --vfs-cache-mode full -v
-}
+# Set-PSReadLineOption -PredictionSource History
+# Set-PSReadLineOption -HistorySearchCursorMovesToEnd
+# Set-PSReadlineKeyHandler -Chord Tab -Function MenuComplete
+# Set-PSReadlineKeyHandler -Key UpArrow -Function HistorySearchBackward
+# Set-PSReadlineKeyHandler -Key DownArrow -Function HistorySearchForward
 
-function Mount-AList {
-    rclone mount AList: Q: --vfs-cache-mode full -v
-}
-
-Import-Module PSReadLine
-Import-Module posh-git
-
-Set-PSReadLineOption -PredictionSource History
-Set-PSReadLineOption -HistorySearchCursorMovesToEnd
-Set-PSReadlineKeyHandler -Chord Tab -Function MenuComplete
-Set-PSReadlineKeyHandler -Key UpArrow -Function HistorySearchBackward
-Set-PSReadlineKeyHandler -Key DownArrow -Function HistorySearchForward
-
-oh-my-posh init pwsh --config ~/Documents/WindowsPowerShell/sample.omp.json  | Invoke-Expression
+# oh-my-posh init pwsh --config ~/Documents/WindowsPowerShell/sample.omp.json  | Invoke-Expression
