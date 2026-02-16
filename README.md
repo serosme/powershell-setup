@@ -1,5 +1,11 @@
 # powershell-custom
 
+## 软链接
+
+```pwsh
+New-Item -Path C:\Users\User\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1 -ItemType SymbolicLink -Target C:\Users\User\workspace\personal\powershell-setup\Microsoft.PowerShell_profile.ps1
+```
+
 ## 用户配置目录
 
 Documents/WindowsPowerShell
