@@ -25,3 +25,17 @@ posh-git
 ```pwsh
 Install-Module -Name posh-git -Scope CurrentUser -Force
 ```
+
+## 命令
+
+```pwsh
+Get-Module
+```
+
+```pwsh
+Get-Module -ListAvailable
+```
+
+```pwsh
+Get-Module PSReadLine -ListAvailable
+```

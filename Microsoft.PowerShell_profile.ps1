@@ -82,13 +82,14 @@ function Set-New-Context-Menu {
     Stop-Process -Name explorer
 }
 
-# Import-Module PSReadLine
-# Import-Module posh-git
+Import-Module PSReadLine
 
-# Set-PSReadLineOption -PredictionSource History
-# Set-PSReadLineOption -HistorySearchCursorMovesToEnd
-# Set-PSReadlineKeyHandler -Chord Tab -Function MenuComplete
-# Set-PSReadlineKeyHandler -Key UpArrow -Function HistorySearchBackward
-# Set-PSReadlineKeyHandler -Key DownArrow -Function HistorySearchForward
+Set-PSReadLineOption -PredictionSource History
+Set-PSReadLineOption -HistorySearchCursorMovesToEnd
+Set-PSReadlineKeyHandler -Chord Tab -Function MenuComplete
+Set-PSReadlineKeyHandler -Key UpArrow -Function HistorySearchBackward
+Set-PSReadlineKeyHandler -Key DownArrow -Function HistorySearchForward
+
+# Import-Module posh-git
 
 # oh-my-posh init pwsh --config ~/Documents/WindowsPowerShell/sample.omp.json  | Invoke-Expression
