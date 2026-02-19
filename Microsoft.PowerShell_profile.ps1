@@ -26,11 +26,6 @@ function Set-Shell-Proxy {
     $env:https_proxy = "http://127.0.0.1:7890";
 }
 
-function Reset-Shell-Proxy {
-    $env:http_proxy = "";
-    $env:https_proxy = "";
-}
-
 function Set-Git-Proxy {
     git config --global http.proxy http://127.0.0.1:7890
     git config --global https.proxy http://127.0.0.1:7890
@@ -65,7 +60,6 @@ function Set-All-Proxy {
 }
 
 function Reset-All-Proxy {
-    Set-Shell-Proxy
     Reset-Git-Proxy
     Reset-Scoop-Proxy
     Reset-WinGet-Proxy
