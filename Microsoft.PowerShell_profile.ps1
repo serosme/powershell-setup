@@ -11,8 +11,8 @@ function Prompt {
         $location = Split-Path -Leaf $currentPath
     }
     Write-Host "$location " -NoNewline -ForegroundColor Cyan
-    Write-Host "> " -NoNewline -ForegroundColor White
-    return ""
+    Write-Host ">" -NoNewline -ForegroundColor White
+    return " "
 }
 
 function Open-Startup {
