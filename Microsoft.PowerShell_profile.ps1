@@ -12,7 +12,7 @@ function Prompt {
     }
     Write-Host "$location " -NoNewline -ForegroundColor Cyan
     Write-Host "> " -NoNewline -ForegroundColor White
-    return " "
+    return ""
 }
 
 function Open-Startup {
