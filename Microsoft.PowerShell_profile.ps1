@@ -65,17 +65,29 @@ function Reset-WinGet-Proxy {
     sudo winget settings reset DefaultProxy
 }
 
+function Set-Npm-Proxy {
+    npm config set proxy http://127.0.0.1:7890
+    npm config set https-proxy http://127.0.0.1:7890
+}
+
+function Reset-Npm-Proxy {
+    npm config get proxy
+    npm config get https-proxy
+}
+
 function Set-All-Proxy {
     Set-Shell-Proxy
     Set-Git-Proxy
     Set-Scoop-Proxy
     Set-WinGet-Proxy
+    Set-Npm-Proxy
 }
 
 function Reset-All-Proxy {
     Reset-Git-Proxy
     Reset-Scoop-Proxy
     Reset-WinGet-Proxy
+    Reset-Npm-Proxy
 }
 
 function Reset-Notify {
