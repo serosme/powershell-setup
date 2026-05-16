@@ -3,14 +3,6 @@ $OutputEncoding = [System.Text.UTF8Encoding]::new()
 [Console]::OutputEncoding = [System.Text.UTF8Encoding]::new()
 
 function Prompt {
-    $currentPath = Get-Location
-    $homePath = $env:USERPROFILE
-    if ($currentPath.Path -eq $homePath) {
-        $location = "~"
-    } else {
-        $location = Split-Path -Leaf $currentPath
-    }
-    Write-Host "$location " -NoNewline -ForegroundColor Cyan
     Write-Host ">" -NoNewline -ForegroundColor White
     return " "
 }
