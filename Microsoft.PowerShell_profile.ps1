@@ -63,8 +63,8 @@ function Set-Npm-Proxy {
 }
 
 function Reset-Npm-Proxy {
-    npm config get proxy
-    npm config get https-proxy
+    npm config delete proxy
+    npm config delete https-proxy
 }
 
 function Set-All-Proxy {
