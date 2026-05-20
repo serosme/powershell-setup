@@ -5,7 +5,7 @@
 ```pwsh
 New-Item -Path "C:\Users\User\Documents\WindowsPowerShell" -ItemType Directory -Force
 
-New-Item -Path "C:\Users\User\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1" -ItemType SymbolicLink -Target "C:\Users\User\workspace\personal\powershell-setup\Microsoft.PowerShell_profile.ps1"
+New-Item -Path "C:\Users\User\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1" -ItemType SymbolicLink -Target "C:\Users\User\workspace\powershell-setup\Microsoft.PowerShell_profile.ps1" -Force
 ```
 
 ## 取消提示

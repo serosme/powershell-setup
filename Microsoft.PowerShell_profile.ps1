@@ -99,6 +99,15 @@ function Set-New-Context-Menu {
     Stop-Process -Name explorer
 }
 
+function z {
+    if ($args.Count -eq 0) {
+        Set-Location ~/workspace
+    }
+    else {
+        Set-Location $args[0]
+    }
+}
+
 Import-Module PSReadLine
 
 Set-PSReadLineOption -PredictionSource History
