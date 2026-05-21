@@ -108,6 +108,15 @@ function z {
     }
 }
 
+function e {
+    if ($args.Count -eq 0) {
+        Invoke-Item ~/workspace
+    }
+    else {
+        Invoke-Item $args[0]
+    }
+}
+
 Import-Module PSReadLine
 
 Set-PSReadLineOption -PredictionSource History
