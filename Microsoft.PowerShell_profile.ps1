@@ -108,6 +108,15 @@ function z {
     }
 }
 
+function gb {
+    if ($args.Count -eq 0) {
+        wt -p "Git Bash" -d $env:USERPROFILE\workspace
+    }
+    else {
+        wt -p "Git Bash" -d $args[0]
+    }
+}
+
 function e {
     if ($args.Count -eq 0) {
         Invoke-Item ~/workspace
