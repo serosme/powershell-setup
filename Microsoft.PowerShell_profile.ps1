@@ -104,16 +104,37 @@ function z {
         Set-Location $env:USERPROFILE\workspace
     }
     else {
-        Set-Location $args[0]
+        $target = $args[0].Trim()
+        if (-not $target) {
+            Set-Location $env:USERPROFILE\workspace
+        }
+        elseif (Test-Path $target -PathType Container) {
+            Set-Location $target
+        }
+        else {
+            Write-Warning "Directory not found: $target"
+        }
     }
 }
 
 function gb {
     if ($args.Count -eq 0) {
-        wt -p "Git Bash" -d $env:USERPROFILE\workspace
+        wt -w 0 -p "Git Bash" -d $env:USERPROFILE\workspace
     }
     else {
-        wt -p "Git Bash" -d $args[0]
+        $target = $args[0].Trim()
+        if (-not $target) {
+            wt -w 0 -p "Git Bash" -d $env:USERPROFILE\workspace
+        }
+        elseif (Test-Path $target -PathType Container) {
+            wt -w 0 -p "Git Bash" -d $target
+            if ($LASTEXITCODE -ne 0) {
+                Write-Warning "wt exited with code $LASTEXITCODE for: $target"
+            }
+        }
+        else {
+            Write-Warning "Directory not found: $target"
+        }
     }
 }
 
@@ -122,7 +143,16 @@ function e {
         Invoke-Item $env:USERPROFILE\workspace
     }
     else {
-        Invoke-Item $args[0]
+        $target = $args[0].Trim()
+        if (-not $target) {
+            Invoke-Item $env:USERPROFILE\workspace
+        }
+        elseif (Test-Path $target) {
+            Invoke-Item $target
+        }
+        else {
+            Write-Warning "Path not found: $target"
+        }
     }
 }
 
