@@ -101,7 +101,7 @@ function Set-New-Context-Menu {
 
 function z {
     if ($args.Count -eq 0) {
-        Set-Location ~/workspace
+        Set-Location $env:USERPROFILE\workspace
     }
     else {
         Set-Location $args[0]
@@ -119,7 +119,7 @@ function gb {
 
 function e {
     if ($args.Count -eq 0) {
-        Invoke-Item ~/workspace
+        Invoke-Item $env:USERPROFILE\workspace
     }
     else {
         Invoke-Item $args[0]
