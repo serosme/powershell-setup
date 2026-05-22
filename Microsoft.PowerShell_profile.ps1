@@ -13,6 +13,7 @@ function Open-Startup {
 
 function Update-All {
     Update-Scoop
+    Update-Bun
     Update-Winget
 }
 
@@ -24,6 +25,10 @@ function Update-Scoop {
     scoop update
     scoop update *
     scoop cleanup *
+}
+
+function Update-Bun {
+    bun update -g
 }
 
 function Set-Shell-Proxy {
