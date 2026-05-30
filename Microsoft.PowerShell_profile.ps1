@@ -13,7 +13,6 @@ function Open-Startup {
 
 function Update-All {
     Update-Scoop
-    Update-Bun
     Update-Winget
 }
 
@@ -33,14 +32,6 @@ function Update-Scoop {
     scoop update
     scoop update *
     scoop cleanup *
-}
-
-function Update-Bun {
-    if (-not (Get-Command bun -ErrorAction SilentlyContinue)) {
-        Write-Warning "bun not found, skipping Bun update"
-        return
-    }
-    bun update -g
 }
 
 function Reset-Notify {
