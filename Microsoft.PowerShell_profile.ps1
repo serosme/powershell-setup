@@ -70,23 +70,21 @@ function z {
 }
 
 function gb {
-    if ($args.Count -eq 0) {
-        wt -w 0 -p "Git Bash" -d $env:USERPROFILE\workspace
+    param(
+        [string]$Path = ""
+    )
+    $target = $Path.Trim()
+    if (-not $target) {
+        $target = $pwd
+    }
+    if (Test-Path $target -PathType Container) {
+        wt -w 0 -p "Git Bash" -d "$target"
+        if ($LASTEXITCODE -ne 0) {
+            Write-Warning "wt exited with code $LASTEXITCODE for: $target"
+        }
     }
     else {
-        $target = $args[0].Trim()
-        if (-not $target) {
-            wt -w 0 -p "Git Bash" -d $env:USERPROFILE\workspace
-        }
-        elseif (Test-Path $target -PathType Container) {
-            wt -w 0 -p "Git Bash" -d $target
-            if ($LASTEXITCODE -ne 0) {
-                Write-Warning "wt exited with code $LASTEXITCODE for: $target"
-            }
-        }
-        else {
-            Write-Warning "Directory not found: $target"
-        }
+        Write-Warning "Directory not found: $target"
     }
 }
 
