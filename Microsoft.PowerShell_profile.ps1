@@ -106,4 +106,25 @@ function e {
     }
 }
 
+function uwsl {
+    $Name = 'Debian'
+    $User = 'jdoe'
+    $Pass = 'jdoe'
+
+    $i = 0
+    while ($i -lt $args.Count) {
+        switch ($args[$i]) {
+            '--name' { $Name = $args[++$i] }
+            '--user' { $User = $args[++$i] }
+            '--pass' { $Pass = $args[++$i] }
+        }
+        $i++
+    }
+
+    $f = New-TemporaryFile
+    [IO.File]::WriteAllText($f, "$User`n$Pass`n$Pass`n")
+    cmd /c "wsl.exe --install --name $Name -d Debian < ""$f"" 2>&1"
+    Remove-Item $f
+}
+
 (&mise activate pwsh) | Out-String | Invoke-Expression
