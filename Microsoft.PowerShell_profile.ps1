@@ -108,8 +108,8 @@ function e {
 
 function uwsl {
     $Name = 'Debian'
-    $User = 'adsf'
-    $Pass = 'asdf'
+    $User = 'debian'
+    $Pass = 'debian'
 
     $i = 0
     while ($i -lt $args.Count) {
