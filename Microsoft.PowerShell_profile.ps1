@@ -126,5 +126,3 @@ function uwsl {
     cmd /c "wsl.exe --install --name $Name -d Debian < ""$f"" 2>&1"
     Remove-Item $f
 }
-
-(&mise activate pwsh) | Out-String | Invoke-Expression

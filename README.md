@@ -3,9 +3,9 @@
 ## 软链接
 
 ```pwsh
-New-Item -Path "C:\Users\User\Documents\PowerShell" -ItemType Directory -Force
+New-Item -Path "C:\Users\User\Documents\WindowsPowerShell" -ItemType Directory -Force
 
-New-Item -Path "C:\Users\User\Documents\PowerShell\Microsoft.PowerShell_profile.ps1" -ItemType SymbolicLink -Target "C:\Users\User\workspace\powershell-setup\Microsoft.PowerShell_profile.ps1" -Force
+New-Item -Path "C:\Users\User\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1" -ItemType SymbolicLink -Target "C:\Users\User\workspace\powershell-setup\Microsoft.PowerShell_profile.ps1" -Force
 ```
 
 ## PowerShell
