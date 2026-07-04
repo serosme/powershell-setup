@@ -1,7 +1,3 @@
-$OutputEncoding = [System.Text.UTF8Encoding]::new()
-[Console]::InputEncoding = [System.Text.UTF8Encoding]::new()
-[Console]::OutputEncoding = [System.Text.UTF8Encoding]::new()
-
 function Prompt {
     Write-Host ">" -NoNewline -ForegroundColor White
     return " "
