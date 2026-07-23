@@ -3,33 +3,6 @@ function Prompt {
     return " "
 }
 
-function Open-Startup {
-    Start-Process "$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Startup"
-}
-
-function Update-All {
-    Update-Scoop
-    Update-Winget
-}
-
-function Update-Winget {
-    if (-not (Get-Command winget -ErrorAction SilentlyContinue)) {
-        Write-Warning "winget not found, skipping Winget update"
-        return
-    }
-    winget update --all
-}
-
-function Update-Scoop {
-    if (-not (Get-Command scoop -ErrorAction SilentlyContinue)) {
-        Write-Warning "scoop not found, skipping Scoop update"
-        return
-    }
-    scoop update
-    scoop update *
-    scoop cleanup *
-}
-
 function Reset-Notify {
     Remove-Item -Path "HKCU:\Control Panel\NotifyIconSettings" -Recurse
     Stop-Process -Name explorer
