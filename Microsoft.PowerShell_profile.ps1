@@ -76,9 +76,11 @@ function e {
 }
 
 function uwsl {
-    $Name = 'Debian'
-    $User = 'debian'
-    $Pass = 'debian'
+    $DateStr = (Get-Date).ToString('yyyyMMdd')
+    
+    $Name = $DateStr
+    $User = "u$DateStr"
+    $Pass = $DateStr
 
     $i = 0
     while ($i -lt $args.Count) {
