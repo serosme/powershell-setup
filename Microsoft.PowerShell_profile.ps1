@@ -20,6 +20,16 @@ function Set-New-Context-Menu {
     Stop-Process -Name explorer
 }
 
+function Update-Scoop {
+    if (-not (Get-Command scoop -ErrorAction SilentlyContinue)) {
+        Write-Warning "scoop not found, skipping Scoop update"
+        return
+    }
+    scoop update
+    scoop update *
+    scoop cleanup *
+}
+
 function z {
     if ($args.Count -eq 0) {
         Set-Location $env:USERPROFILE\workspace
